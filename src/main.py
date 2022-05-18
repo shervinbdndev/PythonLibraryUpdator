@@ -1,10 +1,14 @@
+from __future__ import print_function
+from __future__ import absolute_import
+
 try:
     import os
     import sys
     import asyncio
     import platform
     import subprocess
-    from typing import Any
+    from typing import (Coroutine , Any)
+    from typing_extensions import (Self , Type)
 
 except:
     raise ModuleNotFoundError.__doc__
@@ -15,7 +19,7 @@ finally:
     
 
 class PythonVersionUpdator:
-    def __init__(self) -> Any:
+    def __init__(self : Self) -> Any:
         super(PythonVersionUpdator , self).__init__()
         if (platform.system()[0].upper() in ['W' , 'L']):
             try:
@@ -29,7 +33,7 @@ class PythonVersionUpdator:
 class PythonLibraryUpdator:
     
     @classmethod
-    async def update(cls) -> Any:
+    async def update(cls : Type[Self]) -> Coroutine:
         cls.currentPythonVersion : int = int(sys.version[0])
         
         if (cls.currentPythonVersion < 3):
