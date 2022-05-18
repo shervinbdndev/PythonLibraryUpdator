@@ -44,4 +44,4 @@ class PythonLibraryUpdator():
 
 if (__name__ == '__main__' and __package__ is None):
     PythonVersionUpdator()
-    asyncio.run(PythonLibraryUpdator().update())
+    asyncio.run(main=PythonLibraryUpdator().update())
