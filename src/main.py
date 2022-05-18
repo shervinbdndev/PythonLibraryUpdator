@@ -1,17 +1,14 @@
-from __future__ import print_function
-from __future__ import absolute_import
-
 try:
     import os
     import sys
     import asyncio
     import platform
     import subprocess
-    from typing import (Coroutine , Any)
-    from typing_extensions import (Self , Type)
+    from typing_extensions import Self
+    from typing import (Coroutine , Type , Any)
 
-except:
-    raise ModuleNotFoundError.__doc__
+except ModuleNotFoundError as mnfe:
+    raise mnfe.__doc__
 
 finally:
     ...
