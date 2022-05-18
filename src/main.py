@@ -14,7 +14,7 @@ finally:
     
     
 
-class PythonVersionUpdator():
+class PythonVersionUpdator:
     def __init__(self) -> Any:
         super(PythonVersionUpdator , self).__init__()
         if (platform.system()[0].upper() in ['W' , 'L']):
@@ -26,7 +26,7 @@ class PythonVersionUpdator():
     
     
     
-class PythonLibraryUpdator():
+class PythonLibraryUpdator:
     
     @classmethod
     async def update(cls) -> Any:
