@@ -5,7 +5,7 @@ try:
     import platform
     import subprocess
     from typing_extensions import Self
-    from typing import (Coroutine , Type , Any)
+    from typing import (Coroutine , Type , Any , final)
 
 except ModuleNotFoundError as mnfe:
     raise mnfe.__doc__
@@ -15,6 +15,7 @@ finally:
     
     
 
+@final
 class PythonVersionUpdator:
     def __init__(self : Self) -> Any:
         super(PythonVersionUpdator , self).__init__()
@@ -26,7 +27,8 @@ class PythonVersionUpdator:
 
     
     
-    
+
+@final    
 class PythonLibraryUpdator:
     
     @classmethod
