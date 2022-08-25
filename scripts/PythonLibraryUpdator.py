@@ -1,16 +1,19 @@
-try:
-    import os
-    import sys
-    import asyncio
-    import subprocess
-    from typing_extensions import Self
-    from typing import (Coroutine , Type , Union , Literal , Any , final)
+if (__debug__):
+    try:
+        import os
+        import sys
+        import asyncio
+        import subprocess
+        from typing_extensions import Self
+        from typing import (Coroutine , Type , Union , Literal , Any , final)
 
-except ModuleNotFoundError.__doc__ as MNFE:
-    raise MNFE from None
+    except ModuleNotFoundError.__doc__ as MNFE:
+        raise MNFE from None
 
-finally:
-    ...
+    finally:
+        ...
+else:
+    raise
     
     
 
@@ -42,8 +45,7 @@ class PythonLibraryUpdator:
     def __new__(cls: Type[Self] , *args: Any , **kwargs: Any) -> Union[Literal[None] , Self]:
         if (sys.version_info[0:2] in [(3,7) , (3,8) , (3,9) , (3,10)]):
             return super().__new__(cls , *args , **kwargs)
-        else:
-            return None
+        return None
             
       
       
