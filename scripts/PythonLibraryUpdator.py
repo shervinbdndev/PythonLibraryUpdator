@@ -35,7 +35,7 @@ class PythonVersionUpdator:
 class PythonLibraryUpdator:
     
     @staticmethod
-    async def update() -> Coroutine:
+    async def update() -> Union[Coroutine , str]:
         for package in os.popen(cmd='pip freeze').readlines():
             try:
                 subprocess.call(args=['pip3' , 'install' , '--upgrade' , package.strip().split(sep='==')[0]])
