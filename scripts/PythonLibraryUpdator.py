@@ -3,6 +3,8 @@ if (__debug__):
         import os
         import sys
         import asyncio
+        import requests
+        import colorama
         import subprocess
         from typing_extensions import Self
         from typing import (Coroutine , Type , Union , Literal , Any , final)
@@ -38,9 +40,16 @@ class PythonLibraryUpdator:
             try:
                 subprocess.call(args=['pip3' , 'install' , '--upgrade' , package.strip().split(sep='==')[0]])
             except ConnectionError.__doc__ as CE:
-                print(CE)
+                print('%s %s Occurred' % colorama.ansi.Fore.RED , CE)
+                break
+            except requests.RequestException.__doc__ as RE:
+                print('%s %s Occurred' % colorama.ansi.Fore.RED , RE)
+                break
             except KeyboardInterrupt.__doc__ as KI:
-                print(KI)
+                print('%s %s Occurred' % colorama.ansi.Fore.RED , KI)
+                break
+        else:
+            print('%s All Libraries Updated Successfully' % colorama.ansi.Fore.GREEN)
             
     def __new__(cls: Type[Self] , *args: Any , **kwargs: Any) -> Union[Literal[None] , Self]:
         if (sys.version_info[0:2] in [(3,7) , (3,8) , (3,9) , (3,10)]):

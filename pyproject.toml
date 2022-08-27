@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "PythonLibraryUpdator"
-version = "1.0.3"
+version = "1.0.4"
 description = ""
 authors = ["shervinbdndev <shervin2234@gmail.com>"]
 
