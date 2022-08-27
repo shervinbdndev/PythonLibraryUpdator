@@ -40,14 +40,11 @@ class PythonLibraryUpdator:
             try:
                 subprocess.call(args=['pip3' , 'install' , '--upgrade' , package.strip().split(sep='==')[0]])
             except ConnectionError.__doc__ as CE:
-                print('%s %s Occurred' % colorama.ansi.Fore.RED , CE)
-                break
+                raise '%s %s Occurred' % colorama.ansi.Fore.RED , CE
             except requests.RequestException.__doc__ as RE:
-                print('%s %s Occurred' % colorama.ansi.Fore.RED , RE)
-                break
+                raise '%s %s Occurred' % colorama.ansi.Fore.RED , RE
             except KeyboardInterrupt.__doc__ as KI:
-                print('%s %s Occurred' % colorama.ansi.Fore.RED , KI)
-                break
+                raise '%s %s Occurred' % colorama.ansi.Fore.RED , KI
         else:
             print('%s All Libraries Updated Successfully' % colorama.ansi.Fore.GREEN)
             
