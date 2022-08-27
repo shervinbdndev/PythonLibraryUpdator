@@ -54,7 +54,7 @@ class PythonLibraryUpdator:
             except KeyboardInterrupt.__doc__ as KI:
                 raise '%s %s Occurred' % (colorama.ansi.Fore.RED , KI)
         else:
-            print('\n%s All Libraries Updated Successfully\n' % colorama.ansi.Fore.GREEN)
+            print('\n%s All Libraries Updated Successfully \n%s' % (colorama.ansi.Fore.GREEN , colorama.ansi.Fore.WHITE))
             
     def __new__(cls: Type[Self] , *args: Any , **kwargs: Any) -> Union[Literal[None] , Self]:
         if (sys.version_info[0:2] in [(3,7) , (3,8) , (3,9) , (3,10)]):
